@@ -1,0 +1,2149 @@
+body {
+    font-family: "Forum", serif;
+    margin: 0;
+    background-color: rgb(236, 232, 232);
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.icon {
+
+    font-size: 4vh;
+    /* Размер иконки через CSS */
+    color: #0d0f10;
+    /* Цвет иконки */
+    float: right;
+
+
+}
+
+
+.top-nav {
+    position: -webkit-sticky;
+    /* For Safari */
+    position: sticky;
+    top: 0;
+    /* Stick to the top */
+    background-color: #333333;
+    color: white;
+    padding: 10px 20px;
+    z-index: 1000;
+    /* Ensure it's above other content */
+}
+
+.top-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top-nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.content-area {
+    background-color: rgb(230, 228, 228);
+    height: fit-content;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    /* ensures it takes at least the height of the viewport */
+    overflow-y: auto;
+    /* makes it scrollable */
+    /* margin-left: 10px; */
+}
+
+#home.content-section {
+    background: url("/static/img/homeback.png") no-repeat center center / cover;
+    /* Дополнительные стили, если нужно */
+    height: 100vh;
+    /* Если хотите, чтобы секция занимала весь экран по высоте */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+}
+
+.pups-image {
+    max-width: 20%;
+    max-height: 60%;
+    opacity: 0.85;
+    filter: grayscale(10%)
+}
+
+#mod.content-section {
+    background: url("/static/img/modelsback.png") no-repeat center center / cover;
+    /* Дополнительные стили, если нужно */
+    height: 100vh;
+    /* Если хотите, чтобы секция занимала весь экран по высоте */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+}
+
+#manufacturers.content-section {
+    position: relative;
+    /* Ensure the section is positioned relative for the pseudo-element */
+    background: url("/static/img/man7.png") no-repeat center center / cover;
+    height: 100vh;
+    opacity: 0.8;
+}
+
+#manufacturers.content-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    filter: blur(2px) contrast(1.2) invert(15%) brightness(7);
+    pointer-events: none;
+    /* Allow clicks to pass through the gradient overlay */
+}
+
+
+#details.content-section {
+    background: url("/static/img/modelsback.png") no-repeat center center / cover;
+    /* Дополнительные стили, если нужно */
+    height: 100vh;
+    /* Если хотите, чтобы секция занимала весь экран по высоте */
+}
+
+#comparison.content-section {
+
+    background: url("/static/img/3.png") no-repeat center center / cover;
+    /* Дополнительные стили, если нужно */
+    height: 100vh;
+    /* Если хотите, чтобы секция занимала весь экран по высоте */
+
+}
+
+.models-item:hover {
+    transform: scale(1.05);
+    /* Увеличение при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Тень при наведении */
+    border-color: #ccc;
+    /* Изменение цвета рамки при наведении */
+    cursor: pointer;
+    /* Курсор в виде руки при наведении */
+}
+
+.section-separator {
+    border: none;
+    border-top: 1px solid white;
+    /* creates the white line */
+    margin: 20px;
+}
+
+.gradient-text {
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+    box-decoration-break: clone;
+}
+
+.museo-sans-500 {
+    font-family: "museo-sans", "source-han-sans-simplified-c", "Source Sans Pro",
+        "noto-sans-cjk-jp", arial, helvetica, sans-serif;
+    font-weight: 500;
+    font-size: xx-large;
+}
+
+.welcome-area-gradient-overlay {
+    max-width: 100%;
+    height: 100%;
+    background:
+
+        url("./media/welcome.webp") no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ffffff;
+    /* Ensures text is white for visibility on dark background */
+}
+
+.about-area-gradient-overlay {
+    max-width: 100%;
+    height: 100%;
+    background:
+        url("./media/about.webp") no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ffffff;
+    /* Ensures text is white for visibility on dark background */
+}
+
+.services-area-gradient-overlay {
+    max-width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.25) 40%,
+            rgba(0, 0, 0, 0.5) 45%,
+            rgba(0, 0, 0, 0) 50%),
+        url("./media/services.webp") no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ffffff;
+    /* Ensures text is white for visibility on dark background */
+}
+
+/* Style the row to display as a flex container, which wraps items */
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    flex-wrap: wrap;
+    margin: 0 -10px;
+    margin-top: 7%;
+    padding: 0 50px;
+    gap: 20px;
+    /* spacing between columns */
+}
+
+/* Flex items (columns) */
+.column {
+    flex: 1;
+    /* grow, don’t shrink, and basis at 21% */
+    padding: 0 10px;
+    /* padding on sides, adjust as needed */
+    box-sizing: border-box;
+    /* include padding in width calculation */
+}
+
+/* Card styling with background images */
+.card {
+
+    border: 2px solid white;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 items per row */
+
+    box-shadow: 0 4px 8px;
+    /* Добавляем тень для базового объема */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    /* Скругляем углы рамки */
+    position: relative;
+    flex: 1 0 21%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(94, 91, 91);
+    /* Adjust text color for better readability */
+    font-family: Haettenschweiler, sans-serif;
+    font-weight: bold;
+    -webkit-text-stroke: 1px rgb(7, 7, 8);
+    text-shadow: 4px 4px 4px rgba(206, 50, 50, 0.8);
+
+    filter: drop-shadow(3px 3px 4px rgba(247, 244, 244, 0.5));
+    transition: 0.3s;
+    margin-bottom: 20px;
+    padding: 20px;
+    /* Adjust padding as needed */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 1;
+}
+
+.card h3 {
+    font-family: 'Helvetica Neue';
+    -webkit-text-stroke: 1px rgb(17, 16, 16);
+    color: rgb(9, 1, 17);
+
+    font-weight: bolder;
+    font-size: 22px;
+    letter-spacing: 10px;
+}
+
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    /* Ensure the background is behind the card content */
+    transform: scale(1.2) rotate(2deg);
+    /* Example transformation */
+    filter: blur(1px);
+    opacity: 0.6;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(249, 246, 246, 0.8), rgba(0, 0, 0, 0.1));
+        /* Change gradient colors as needed */
+    }
+}
+
+/* Image container styling for centering */
+.image-container-card {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    width: auto;
+    height: 33vh;
+    max-width: 55vh;
+
+    grid-template-columns: repeat(5, 1fr);
+    position: absolute;
+    top: 24%;
+    right: 5%;
+    transform: translateY(-35%);
+    /* Center the image container vertically */
+    width: 8em;
+    /* Adjust height as needed */
+    max-width: 30%;
+    max-height: 50%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    /* Vertically center the image within the container */
+}
+
+.image-container-card img {
+
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: contain;
+    opacity: 0.65;
+    filter: grayscale(1) brightness(1.2) contrast(1.1);
+}
+
+.card-content {
+
+    grid-template-columns: repeat(5, 1fr);
+    z-index: 2;
+}
+
+/************** CONTACT US **************/
+
+.contact-area-gradient-overlay {
+    max-width: 100%;
+    height: 100%;
+    background-color: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ffffff;
+    /* Ensures text is white for visibility on dark background */
+}
+
+.form-ui {
+    font-family: "museo-sans", "source-han-sans-simplified-c", "Source Sans Pro",
+        "noto-sans-cjk-jp", arial, helvetica, sans-serif;
+    color: #fff;
+}
+
+.contact-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 20px; */
+    gap: 20px;
+    width: 100%;
+    /* Adjusted for full width */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-row {
+    display: flex;
+    width: 60%;
+    /* Adjusted to match textarea width */
+    justify-content: space-between;
+}
+
+.form-row .form-group {
+    width: 48%;
+    /* Slightly less than half to fit side-by-side */
+}
+
+.full-width {
+    width: 60%;
+    /* Adjusted to match textarea width */
+}
+
+.contact-area-gradient-overlay textarea,
+textarea {
+    height: 20vh;
+}
+
+.contact-area-gradient-overlay textarea,
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    /* Adjusted for full width within their containers */
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    /* Full width of its container */
+    cursor: pointer;
+}
+
+.input-group {
+    margin-bottom: 2rem;
+    /* Adjust space between input groups */
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    /* Adjust label spacing */
+    margin-top: 5px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #76cdd8;
+    /* Use color to match button */
+    color: #fff;
+    font-size: 1.7rem;
+    padding: 0.5rem 0;
+}
+
+.input-group input::placeholder,
+.input-group select {
+    color: #fff;
+}
+
+.input-group select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    background-position: right 0.5rem center;
+    background-size: 1.2rem;
+    padding-right: 2rem;
+    /* Ensure padding for the background image */
+}
+
+.input-group textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #76cdd8;
+    /* Match your inputs' underline color */
+    color: #fff;
+    font-size: 1.7rem;
+    padding: 0.5rem 0;
+    margin-top: 2rem;
+    /* Space above the textarea, adjust as needed */
+}
+
+.input-group textarea::placeholder {
+    color: #fff;
+}
+
+.input-group textarea {
+    resize: none;
+}
+
+
+
+.button-in-columns-23 .button-ui-23 .button__inner {
+    min-height: unset;
+    flex-grow: 1;
+    padding: 1.1rem 2.2rem;
+}
+
+.button-ui-23 {
+    align-items: center;
+    border-radius: 10rem;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0.2rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.button-ui {
+    display: block;
+    font: 900 1.7rem "museo-sans", "source-han-sans-simplified-c",
+        "Source Sans Pro", "noto-sans-cjk-jp", arial, helvetica, sans-serif;
+    line-height: normal;
+    letter-spacing: 0.2rem;
+    padding: 0 1rem 0 1.2rem;
+    position: relative;
+    width: fit-content;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+    padding: 1.3rem 2.2rem;
+    margin-left: 0;
+    background: black;
+    border-radius: 3rem;
+    font-weight: 900;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.button-ui:hover {
+    background: #76cdd8;
+    /* Change color on hover */
+    background-image: linear-gradient(to left,
+            rgb(184, 150, 255) 20%,
+            rgb(0, 246, 255) 90%,
+            rgb(0, 255, 240) 100%);
+}
+
+/************** BUTTONS **************/
+
+.site-footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.back-to-top {
+    display: block;
+    margin-bottom: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-social-media {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    /* Add styling for icons */
+    position: relative;
+    font-size: 2rem;
+    /* Adjust the font size as needed */
+    color: rgb(0, 255, 240);
+    background-clip: text;
+    /* Clips the background to the text */
+    -webkit-background-clip: text;
+    /* For Webkit browsers like Chrome/Safari */
+}
+
+.social-icon:before {
+    background-image: linear-gradient(to left,
+            rgb(184, 150, 255) 20%,
+            rgb(0, 246, 255) 90%,
+            rgb(0, 255, 240) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Hides the original text color */
+    display: inline-block;
+    /* Allows the gradient to size correctly */
+}
+
+.social-icon:after {
+    content: "";
+    display: block;
+    width: 1em;
+    height: 1em;
+    background: url("path-to-your-icon.png") no-repeat center center;
+    background-size: contain;
+}
+
+/* Add a hover effect for the social icons */
+.social-icon:hover {
+    color: rgb(184, 150, 255);
+}
+
+/* For the copyright text */
+.copyrigh-text {
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+/* Ensure that the social icons' font sizes match the mockup, assuming you're using text and not images */
+.social-icon {
+    font-size: 1.5em;
+    /* Adjust the size as needed */
+}
+
+.content-section h1 {
+    color: rgba(169, 164, 164, 0.99);
+
+    text-shadow: 4px 4px 4px rgba(11, 10, 10, 0.8);
+    text-shadow: black;
+    padding-top: 4%;
+    padding-left: 1%;
+    margin: 10px 0;
+    font-family: 'Arial', sans-serif;
+    /* Устанавливаем стиль шрифта */
+    font-size: 4vw;
+    /* Используем относительные единицы измерения для автоматического изменения размера шрифта */
+    font-weight: bold;
+}
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+
+}
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    /* выравнивание по верхнему краю */
+
+}
+
+.filter-container select,
+.filter-container input {
+    padding-top: 10;
+
+    margin-top: 2%;
+
+    padding: 5px;
+    border: 1.5px solid #9bc7f3;
+    border-radius: 5px;
+}
+
+
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #9bc7f3;
+    color: rgb(38, 32, 32);
+
+
+    cursor: pointer;
+    border-radius: 5px;
+    size: 14px;
+    width: 19%;
+}
+
+button:hover {
+    background-color: #caddf0;
+}
+
+.scrollable-container {
+    flex: 1; /* Take up the remaining space within the section */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.models-container {
+    margin-top: 7%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.model-item {
+
+    box-sizing: border-box;
+    margin: 1%;
+    border-radius: 15px;
+    /* Округление углов */
+    overflow: hidden;
+    border: 2px solid #ccc;
+    /* Рамка */
+    text-align: center;
+
+}
+
+
+.model-item:hover {
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Тень при наведении */
+    border-color: #007BFF;
+    /* Изменение цвета рамки при наведении */
+    cursor: pointer;
+    /* Курсор в виде руки при наведении */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-container button {
+    /* Apply your custom button styles here */
+    border-bottom: calc(100% / 3) solid red;
+    /* Red solid border covering one-third of the bottom side */
+    border-left: calc(100% / 3) solid red;
+    /* Red solid border covering one-third of the left side */
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(38, 32, 32);
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+
+.image-container img {
+    width: 100%;
+    /* Ensure the image fills its container */
+    height: auto;
+    /* Maintain the aspect ratio */
+    transition: transform 0.3s ease;
+}
+
+.image-container .specs-overlay {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+
+    color: white;
+    padding: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .specs-overlay {
+    opacity: 1;
+    display: block;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+    /* animation: slide-left 3s linear; */
+}
+
+
+
+/* Медиа-запрос для экранов меньше 30em */
+@media (max-width: 30em) {
+    #home.content-section {
+        background: url("/static/img/homeback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+
+    #mod.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+    #manufacturers.content-section {
+
+        /* Ensure the section is positioned relative for the pseudo-element */
+        background: url("/static/img/man7.png") no-repeat center center / cover;
+        height: 100%;
+
+    }
+
+
+    #comparison.content-section {
+
+        background: url("/static/img/3.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+
+    }
+
+    #details.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+    }
+
+    .top-nav a {
+        size: 1em;
+        /* Adjust font size for smaller screens */
+    }
+
+    .model-item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        background: none;
+    }
+
+    .row {
+        display: flow-root;
+        grid-row: inherit;
+        /* 5 items per row */
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        gap: 7%;
+        padding-top: 10;
+        margin-left: 1%;
+        margin-right: 20%;
+    }
+
+    .button {
+        size: 30px;
+        width: 60%;
+        margin-left: 0.5%;
+    }
+
+    .image-container {
+        align-items: center;
+
+
+        width: auto;
+        height: auto;
+
+        overflow: hidden;
+        opacity: 0.85;
+    }
+
+    .pups {
+        margin-left: 1%;
+    }
+
+}
+
+/* Медиа-запрос для экранов меньше 40em */
+@media (max-width: 40em) {
+    #home.content-section {
+        background: url("/static/img/homeback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+
+    #mod.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+    #manufacturers.content-section {
+
+        /* Ensure the section is positioned relative for the pseudo-element */
+        background: url("/static/img/man7.png") no-repeat center center / cover;
+        height: 100%;
+
+    }
+
+
+    #comparison.content-section {
+
+        background: url("/static/img/3.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+
+    }
+
+    #details.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+    }
+
+    .image-container {
+        align-items: center;
+
+
+        width: auto;
+        height: auto;
+
+        overflow: hidden;
+        opacity: 0.85;
+    }
+
+    .top-nav a {
+        font-size: 0.7em;
+        /* Adjust font size for smaller screens */
+    }
+
+    .model-item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        background: none;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        gap: 10%;
+        padding-top: 10;
+        margin-left: 2%;
+        margin-right: 39%;
+    }
+
+    .button {
+        margin-left: 1%;
+    }
+
+    .pups {
+        margin-left: 2%;
+    }
+
+    .row {
+        display: flow-root;
+        grid-row: inherit;
+
+        /* 5 items per row */
+    }
+
+    .row {
+
+        flex-wrap: wrap;
+        /* 5 items per row */
+    }
+
+    .models-container {
+        display: flow-root;
+        grid-row: inherit;
+        /* 5 items per row */
+
+    }
+
+    .comparison-container {
+        display: flow-root;
+        flex-wrap: wrap;
+    }
+
+
+}
+
+/* Медиа-запрос для экранов меньше 50em */
+@media (max-width: 50em) {
+    #home.content-section {
+        background: url("/static/img/homeback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+
+    #mod.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+    #manufacturers.content-section {
+
+        /* Ensure the section is positioned relative for the pseudo-element */
+        background: url("/static/img/man7.png") no-repeat center center / cover;
+        height: 100%;
+
+    }
+
+
+    #comparison.content-section {
+
+        background: url("/static/img/3.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+
+    }
+
+    #details.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+    }
+
+    .model-item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        background: none;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        gap: 10%;
+        padding-top: 10;
+        margin-left: 2%;
+        margin-right: 39%;
+    }
+
+    .button {
+        margin-left: 1%;
+    }
+
+    .but {
+        width: 30%;
+    }
+
+    .pups {
+        margin-left: 2%;
+    }
+
+    .image-container {
+        align-items: center;
+
+
+        width: auto;
+        height: auto;
+
+        overflow: hidden;
+        opacity: 0.85;
+    }
+
+    .content-section h1 {
+        color: rgba(169, 164, 164, 0.99);
+
+        text-shadow:
+            2px 2px 0px #9bc7f3,
+            -2px -2px 0px #9bc7f3,
+            -2px 2px 0px #9bc7f3,
+            2px -2px 0px #9bc7f3;
+
+        padding-top: 4%;
+        padding-left: 1%;
+        margin: 10px 0;
+        font-family: 'Arial', sans-serif;
+        /* Устанавливаем стиль шрифта */
+        font-size: 4vh;
+        /* Используем относительные единицы измерения для автоматического изменения размера шрифта */
+        font-weight: bold;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        border: 2px solid white;
+
+        box-shadow: 0 4px 8px;
+        /* Добавляем тень для базового объема */
+        transition: transform 0.3s, box-shadow 0.3s;
+        /* Добавляем рамку к карточкам автомобилей */
+        border-radius: 10px;
+        /* Скругляем углы рамки */
+        position: relative;
+        flex: 1 0 21%;
+        size: 30%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: rgb(94, 91, 91);
+        /* Adjust text color for better readability */
+        font-family: Haettenschweiler, sans-serif;
+        font-weight: bold;
+        -webkit-text-stroke: 1px rgb(52, 52, 86);
+        text-shadow: 4px 4px 4px rgba(244, 239, 239, 0.8);
+
+        filter: drop-shadow(3px 3px 4px rgba(247, 244, 244, 0.5));
+        transition: 0.3s;
+        margin-bottom: 20px;
+        padding: 20px;
+        /* Adjust padding as needed */
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 1;
+    }
+
+    .card h3 {
+        font-family: 'Helvetica Neue';
+        -webkit-text-stroke: 1px rgb(17, 16, 16);
+        color: rgb(9, 1, 17);
+
+        font-weight: bolder;
+        font-size: 22px;
+        letter-spacing: 10px;
+    }
+
+    .card-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        /* Ensure the background is behind the card content */
+        transform: scale(1.2) rotate(2deg);
+        /* Example transformation */
+        filter: blur(1px);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(249, 246, 246, 0.8), rgba(0, 0, 0, 0.1));
+            /* Change gradient colors as needed */
+        }
+    }
+
+    .image-container-card {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        transform: translateY(-35%);
+        /* Center the image container vertically */
+        width: 8em;
+        /* Adjust height as needed */
+        max-width: 30%;
+        max-height: 50%;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        /* Vertically center the image within the container */
+    }
+
+    .column {
+        flex-basis: 100%;
+        /* take full width on small screens */
+    }
+
+    .form-row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-row .form-group {
+        width: 100%;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .content-area {
+        height: auto;
+        /* Ensure it takes at least full viewport height */
+        box-sizing: border-box;
+
+    }
+
+    .specs-overlay {
+        width: 60%;
+        margin-left: 18%;
+        background-color: rgba(0, 0, 0, 0.7);
+        text-align: center;
+
+        color: white;
+
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .models {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .model {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    img {
+        max-width: 60%;
+        height: auto;
+    }
+
+    /* Ensure the container can scroll */
+    body {
+        overflow-y: auto;
+
+    }
+
+    .content-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .comparison-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+    }
+
+    .model-item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        background: none;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        gap: 10%;
+        padding-top: 10;
+        margin-left: 2%;
+        margin-right: 39%;
+    }
+
+    .button {
+        margin-left: 1%;
+    }
+
+    .pups {
+        margin-left: 2%;
+    }
+
+    .models-container {
+        display: flow-root;
+        grid-row: inherit;
+        /* 5 items per row */
+
+    }
+
+    .main-table .image-row {
+        display: none;
+    }
+
+}
+
+@media (max-width: 90em) {
+
+    #home.content-section {
+        background: url("/static/img/homeback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+
+    #mod.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+    #manufacturers.content-section {
+
+        /* Ensure the section is positioned relative for the pseudo-element */
+        background: url("/static/img/man7.png") no-repeat center center / cover;
+        height: 100%;
+
+    }
+
+
+    #comparison.content-section {
+
+        background: url("/static/img/3.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+
+    }
+
+    #details.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+    }
+
+    .row {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-row: inherit;
+        /* 5 items per row */
+    }
+}
+
+/* Медиа-запрос для экранов меньше 70em */
+@media (max-width: 70em) {
+    #home.content-section {
+        background: url("/static/img/homeback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+
+    #mod.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+    #manufacturers.content-section {
+
+        /* Ensure the section is positioned relative for the pseudo-element */
+        background: url("/static/img/man7.png") no-repeat center center / cover;
+        height: 100%;
+
+    }
+
+
+    #comparison.content-section {
+
+        background: url("/static/img/3.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+
+    }
+
+    #details.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+    }
+
+
+    #manufacturers.content-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(2px) contrast(1.2) invert(15%) brightness(7);
+        pointer-events: none;
+        /* Allow clicks to pass through the gradient overlay */
+    }
+
+    .image-container {
+        align-items: center;
+
+
+        width: auto;
+        height: auto;
+
+        overflow: hidden;
+        opacity: 0.85;
+    }
+
+    #details.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+    }
+
+    .model-item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        background: none;
+        border: none;
+
+    }
+
+    .row {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-row: inherit;
+        /* 5 items per row */
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+
+        padding-top: 10%;
+        margin-left: 2%;
+        margin-right: 39%;
+    }
+
+
+
+    .button {
+        margin-left: 1%;
+    }
+
+    .pups {
+        margin-left: 2%;
+    }
+
+    .models-container {
+        display: flow-root;
+        grid-row: inherit;
+        /* 5 items per row */
+
+    }
+
+
+    .card {
+        border: 2px solid white;
+        size: flex;
+        box-shadow: 0 4px 8px;
+        /* Добавляем тень для базового объема */
+        transition: transform 0.3s, box-shadow 0.3s;
+        /* Добавляем рамку к карточкам автомобилей */
+        border-radius: 10px;
+        /* Скругляем углы рамки */
+        position: relative;
+        flex: 1 0 21%;
+        size: 30%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: rgb(94, 91, 91);
+        /* Adjust text color for better readability */
+        font-family: Haettenschweiler, sans-serif;
+        font-weight: bold;
+        -webkit-text-stroke: 1px rgb(52, 52, 86);
+        text-shadow: 4px 4px 4px rgba(244, 239, 239, 0.8);
+
+        filter: drop-shadow(3px 3px 4px rgba(247, 244, 244, 0.5));
+        transition: 0.3s;
+        margin-bottom: 20px;
+        padding: 20px;
+        /* Adjust padding as needed */
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 1;
+    }
+
+    .card h3 {
+        font-family: 'Helvetica Neue';
+        -webkit-text-stroke: 1px rgb(17, 16, 16);
+        color: rgb(9, 1, 17);
+
+        font-weight: bolder;
+        font-size: 22px;
+        letter-spacing: 10px;
+    }
+
+    .card-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        /* Ensure the background is behind the card content */
+        transform: scale(1.2) rotate(2deg);
+        /* Example transformation */
+        filter: blur(1px);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(249, 246, 246, 0.8), rgba(0, 0, 0, 0.1));
+            /* Change gradient colors as needed */
+        }
+    }
+
+    .image-container-card {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        transform: translateY(-35%);
+        /* Center the image container vertically */
+        width: 8em;
+        /* Adjust height as needed */
+        max-width: 30%;
+        max-height: 50%;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        /* Vertically center the image within the container */
+    }
+
+    .column {
+        flex-basis: 100%;
+        /* take full width on small screens */
+    }
+
+    .form-row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-row .form-group {
+        width: 100%;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .content-area {
+        height: auto;
+        /* Ensure it takes at least full viewport height */
+        box-sizing: border-box;
+
+    }
+
+    .specs-overlay {
+        width: 60%;
+        margin-left: 18%;
+        background-color: rgba(0, 0, 0, 0.7);
+        text-align: center;
+
+        color: white;
+
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .models {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .model {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    img {
+        max-width: 60%;
+        height: auto;
+    }
+
+    /* Ensure the container can scroll */
+    body {
+        overflow-y: auto;
+    }
+
+    .content-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .model-item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        background: none;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        gap: 10%;
+        padding-top: 10;
+        margin-left: 2%;
+        margin-right: 39%;
+    }
+
+    .button {
+        margin-left: 1%;
+    }
+
+    .pups {
+        margin-left: 2%;
+    }
+
+    .models-container {
+        display: flow-root;
+        grid-row: inherit;
+        /* 5 items per row */
+
+    }
+}
+
+
+/* Медиа-запрос для экранов меньше 60em */
+@media (max-width: 60em) {
+    #home.content-section {
+        background: url("/static/img/homeback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+
+    #mod.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+        /* Если хотите, чтобы секция занимала весь экран по высоте */
+        display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent spilling into the next section */
+    }
+
+    #manufacturers.content-section {
+
+        /* Ensure the section is positioned relative for the pseudo-element */
+        background: url("/static/img/man7.png") no-repeat center center / cover;
+        height: 100%;
+
+    }
+
+    #manufacturers.content-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        filter: blur(2px) contrast(1.2) invert(15%) brightness(7);
+        pointer-events: none;
+        /* Allow clicks to pass through the gradient overlay */
+    }
+
+
+    #details.content-section {
+        background: url("/static/img/modelsback.png") no-repeat center center / cover;
+        /* Дополнительные стили, если нужно */
+        height: 100%;
+    }
+
+    .row {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-row: inherit;
+        /* 5 items per row */
+    }
+
+
+    .model-item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        background: none;
+    }
+
+    .image-container {
+        align-items: center;
+
+
+        width: auto;
+        height: auto;
+
+        overflow: hidden;
+        opacity: 0.85;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        gap: 10%;
+        padding-top: 10;
+        margin-left: 2%;
+        margin-right: 39%;
+    }
+
+    .button {
+        margin-left: 1%;
+    }
+
+    .pups {
+        margin-left: 2%;
+    }
+
+    .models-container {
+        display: flow-root;
+        grid-row: inherit;
+        /* 5 items per row */
+
+    }
+
+    .card {
+        border: 2px solid white;
+
+        box-shadow: 0 4px 8px;
+        /* Добавляем тень для базового объема */
+        transition: transform 0.3s, box-shadow 0.3s;
+        /* Добавляем рамку к карточкам автомобилей */
+        border-radius: 10px;
+        /* Скругляем углы рамки */
+        position: relative;
+        flex: 1 0 21%;
+        size: 30%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: rgb(94, 91, 91);
+        /* Adjust text color for better readability */
+        font-family: Haettenschweiler, sans-serif;
+        font-weight: bold;
+        -webkit-text-stroke: 1px rgb(52, 52, 86);
+        text-shadow: 4px 4px 4px rgba(244, 239, 239, 0.8);
+
+        filter: drop-shadow(3px 3px 4px rgba(247, 244, 244, 0.5));
+        transition: 0.3s;
+        margin-bottom: 20px;
+        padding: 20px;
+        /* Adjust padding as needed */
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 1;
+    }
+
+    .card h3 {
+        font-family: 'Helvetica Neue';
+        -webkit-text-stroke: 1px rgb(17, 16, 16);
+        color: rgb(9, 1, 17);
+
+        font-weight: bolder;
+        font-size: 22px;
+        letter-spacing: 10px;
+    }
+
+    .card-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        /* Ensure the background is behind the card content */
+        transform: scale(1.2) rotate(2deg);
+        /* Example transformation */
+        filter: blur(1px);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(249, 246, 246, 0.8), rgba(0, 0, 0, 0.1));
+            /* Change gradient colors as needed */
+        }
+    }
+
+    .image-container-card {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        transform: translateY(-35%);
+        /* Center the image container vertically */
+        width: 8em;
+        /* Adjust height as needed */
+        max-width: 30%;
+        max-height: 50%;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        /* Vertically center the image within the container */
+    }
+
+    .column {
+        flex-basis: 100%;
+        /* take full width on small screens */
+    }
+
+    .form-row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-row .form-group {
+        width: 100%;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .content-area {
+        height: auto;
+        /* Ensure it takes at least full viewport height */
+        box-sizing: border-box;
+
+    }
+
+    .specs-overlay {
+        width: 60%;
+        margin-left: 18%;
+        background-color: rgba(0, 0, 0, 0.7);
+        text-align: center;
+
+        color: white;
+
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .models {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .model {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    img {
+        max-width: 60%;
+        height: auto;
+    }
+
+    /* Ensure the container can scroll */
+    body {
+        overflow-y: auto;
+    }
+
+    .content-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .model-item {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        background: none;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        gap: 10%;
+        padding-top: 10;
+        margin-left: 2%;
+        margin-right: 39%;
+    }
+
+    .button {
+        margin-left: 1%;
+    }
+
+    .pups {
+        margin-left: 2%;
+    }
+
+    .models-container {
+        display: flow-root;
+        grid-row: inherit;
+        /* 5 items per row */
+
+    }
+}
+
+
+.comparison-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+.select-car {
+    padding-top: 15px;
+
+    margin-top: 2%;
+    width: 75%;
+    padding: 10px;
+    border: 1.5px solid #9bc7f3;
+    border-radius: 5px;
+}
+
+.but {
+    margin-left: 30px;
+}
+
+.car-info {
+    width: 45%;
+    text-align: center;
+}
+
+.column {
+    flex: 0 0 48%;
+}
+
+.result {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.car-details1 {
+    align-content: left;
+    margin-left: 2%;
+}
+
+.difference {
+    align-content: center;
+}
+
+.car-details2 {
+    align-content: right;
+    text-align: right;
+    margin-right: 10%;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+/* @media screen and (max-width: 60em) {
+    .column {
+        flex-basis: 100%;
+    }
+
+    .form-row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-row .form-group {
+        width: 100%;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+} */
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Основные стили для таблиц */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Общие стили для ячеек таблиц */
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Стили для заголовков таблиц */
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Специфические стили для таблицы с основными данными */
+.main-table,
+.difference-table {
+    width: 80%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.main-table th {
+    background-color: #9bc7f3bb;
+    font-weight: bold;
+}
+
+/* Стили для изображений в основной таблице */
+.main-table img {
+    display: block;
+    height: 150px;
+    /* Выравнивание изображения можно настроить с помощью margin, если это необходимо */
+}
+
+/* Специфические стили для таблицы с различиями */
+.difference-table {
+    margin-top: 40px;
+    /* Промежуток между таблицами */
+}
+
+.difference-table th {
+    background-color: #9bc7f3bb;
+    font-weight: bold;
+}
+
+.difference-table td:first-child,
+.main-table td:first-child {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.responsive-table th,
+.responsive-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.responsive-table th {
+    background-color: #f4f4f4;
+}
+
+@media screen and (max-width: 600px) {
+    .responsive-table thead {
+        display: none;
+    }
+
+    .responsive-table,
+    .responsive-table tbody,
+    .responsive-table tr,
+    .responsive-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .responsive-table tr {
+        margin-bottom: 15px;
+    }
+
+    .responsive-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .responsive-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+.copyT {
+    /* display: none; */
+    position: absolute; left: -9999px;
+}
+
+.icon-container {
+    display: flex;
+    gap: 22px; 
+}
+
+.icon {
+    cursor: pointer;
+}
